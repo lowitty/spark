@@ -1,0 +1,22 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: spark
+  host: localhost
+  username: mentu
+  password: secret
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: spark_test
+  host: localhost
+  pool: 5
+  username: mentu
+  password: secret
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: spark_production
+  pool: 25
+  username: mentu
+  password: secret
