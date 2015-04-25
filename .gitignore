@@ -11,6 +11,7 @@
 # OS generated files #
 ######################
 */.DS_Store
+.project
 **/.DS_Store
 .DS_Store
 .DS_Store?
