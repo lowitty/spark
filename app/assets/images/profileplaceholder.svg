@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="250px" height="250px" viewBox="0 0 250 250" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.2.2 (9983) - http://www.bohemiancoding.com/sketch -->
+    <title>Oval 1715 + Oval 1716 + Oval 1716</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <circle id="path-1" cx="125" cy="125" r="125"></circle>
+    </defs>
+    <g id="Main-Attraction" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Dlanding-existinguser" sketch:type="MSArtboardGroup" transform="translate(-515.000000, -1978.000000)">
+            <g id="Oval-1715-+-Oval-1716-+-Oval-1716" sketch:type="MSLayerGroup" transform="translate(515.000000, 1978.000000)">
+                <circle id="Oval-1715" fill="#939393" sketch:type="MSShapeGroup" cx="125" cy="125" r="125"></circle>
+                <circle id="Oval-1716" fill="#BEBEBE" sketch:type="MSShapeGroup" cx="125.5" cy="91.5" r="46.5"></circle>
+                <g id="Oval-1716">
+                    <mask id="mask-2" sketch:name="Mask" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <use id="Mask" sketch:type="MSShapeGroup" xlink:href="#path-1"></use>
+                    <circle fill="#BEBEBE" sketch:type="MSShapeGroup" mask="url(#mask-2)" cx="125" cy="240" r="90"></circle>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

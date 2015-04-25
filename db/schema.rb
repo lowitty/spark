@@ -11,17 +11,66 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150418062023) do
+ActiveRecord::Schema.define(version: 20150425072603) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "amas", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "user_id"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.integer  "vote_count",  default: 0
+    t.string   "category"
+  end
+
+  add_index "amas", ["user_id"], name: "index_amas_on_user_id", using: :btree
+
+  create_table "comments", force: :cascade do |t|
+    t.text     "body"
+    t.integer  "user_id"
+    t.integer  "reply_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "comments", ["reply_id"], name: "index_comments_on_reply_id", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
+
+  create_table "replies", force: :cascade do |t|
+    t.text     "body"
+    t.integer  "user_id"
+    t.integer  "ama_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "vote_count", default: 0
+  end
+
+  add_index "replies", ["ama_id"], name: "index_replies_on_ama_id", using: :btree
+  add_index "replies", ["user_id"], name: "index_replies_on_user_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "username"
     t.string   "email"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.string   "password_digest"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.string   "remember_digest"
+    t.string   "role"
+    t.text     "one_liner"
+    t.text     "background"
+    t.integer  "vote_count",          default: 0
   end
 
+  add_foreign_key "amas", "users"
+  add_foreign_key "comments", "replies"
+  add_foreign_key "comments", "users"
+  add_foreign_key "replies", "amas"
+  add_foreign_key "replies", "users"
 end

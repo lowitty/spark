@@ -6,6 +6,9 @@ gem 'pg', '~> 0.18.0.pre20141117110243'
 #password encryption
 gem 'bcrypt'
 
+#Use the paperclip as the image updater
+gem 'paperclip'
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'

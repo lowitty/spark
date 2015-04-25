@@ -1,0 +1,27 @@
+<%= render "layouts/header"%>
+<% if logged_in? %>
+<% provide(:title, current_user.username) %>
+<aside class="col-md-4">
+	<section class="user_info">
+		<%= image_tag current_user.avatar_url("thumb") %>
+		<h1><%= current_user.username %> </h1>
+	</section>
+</aside>
+<% end%>
+
+<!--<% if current_user %>
+<h1>This user has been log in!!!</h1>
+<div class="row">
+<aside class="col-md-4">
+<section class="user_info">
+<%= image_tag current_user.avatar_url("thumb") %>
+<h1><%= current_user.username %> </h1>
+</section>
+</aside>
+</div>
+<li>
+<%= link_to "Log out", logout_path, method: "delete" %>
+</li>
+<% elsif%>
+<h1>Invalid login!!!</h1>
+<% end%>-->
