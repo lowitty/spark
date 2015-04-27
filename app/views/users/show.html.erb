@@ -3,10 +3,44 @@
 <% provide(:title, current_user.username) %>
 <aside class="col-md-4">
 	<section class="user_info">
-		<%= image_tag current_user.avatar_url("thumb") %>
+		<%= image_tag current_user.avatar_url("square") %>
 		<h1><%= current_user.username %> </h1>
+		<h1><%= current_user.one_liner %> </h1>
+		<h1><%= current_user.description %> </h1>
 	</section>
 </aside>
+
+<%= form_for @current_user do |f| %>
+
+<p>
+	<%= f.label :username %>
+	<br>
+	<%= f.text_field :username %>
+</p>
+
+<p>
+	<%= f.label :one_liner %>
+	<br>
+	<%= f.text_area :one_liner %>
+</p>
+
+<p>
+	<%= f.label :description %>
+	<br>
+	<%= f.text_area :description %>
+</p>
+
+<div class="field">
+	<%= f.label :avatar %>
+	<%= f.file_field :avatar %>
+</div>
+
+<p>
+	<%= f.submit %>
+</p>
+
+<% end %>
+
 <% end%>
 
 <!--<% if current_user %>

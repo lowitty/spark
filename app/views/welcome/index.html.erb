@@ -1,0 +1,6 @@
+<h1>This is the index page of spark.</h1>
+<% if logged_in?%>
+<h1><%= @current_user.username%></h1>
+<% elsif%>
+<h1>Current there is no user that login.</h1>
+<% end%>

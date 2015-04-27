@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150425072603) do
+ActiveRecord::Schema.define(version: 20150427131334) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(version: 20150425072603) do
     t.text     "one_liner"
     t.text     "background"
     t.integer  "vote_count",          default: 0
+    t.text     "description"
   end
 
   add_foreign_key "amas", "users"

@@ -4,6 +4,34 @@ class UsersController < ApplicationController
     #logger.debug "Person attributes hash: #{@user.attributes.inspect}"
   end
   
+  def edit
+    
+  end
+  
+  def update
+    @user = current_user
+    #@name = params[:user][:username]
+    #update/set username
+    if params[:user][:username]
+      @user.update_attribute(:username, params[:user][:username])
+    end
+    
+    #update/set description
+    if params[:user][:description]
+      @user.update_attribute(:description, params[:user][:description])
+    end
+    
+    #update/set one_liner
+    if params[:user][:one_liner]
+      @user.update_attribute(:one_liner, params[:user][:one_liner])
+    end
+    
+    #update/set avatar
+    if params[:user][:avatar]
+      @user.update_attribute(:avatar, params[:user][:avatar])
+    end
+    
+  end
   
   def new
     @user = User.new
