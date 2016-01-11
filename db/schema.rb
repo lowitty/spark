@@ -13,60 +13,57 @@
 
 ActiveRecord::Schema.define(version: 20150427131334) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "amas", force: :cascade do |t|
-    t.string   "name"
-    t.text     "description"
-    t.integer  "user_id"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-    t.integer  "vote_count",  default: 0
-    t.string   "category"
+    t.string   "name",        limit: 255
+    t.text     "description", limit: 65535
+    t.integer  "user_id",     limit: 4
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+    t.integer  "vote_count",  limit: 4,     default: 0
+    t.string   "category",    limit: 255
   end
 
   add_index "amas", ["user_id"], name: "index_amas_on_user_id", using: :btree
 
   create_table "comments", force: :cascade do |t|
-    t.text     "body"
-    t.integer  "user_id"
-    t.integer  "reply_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.text     "body",       limit: 65535
+    t.integer  "user_id",    limit: 4
+    t.integer  "reply_id",   limit: 4
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   add_index "comments", ["reply_id"], name: "index_comments_on_reply_id", using: :btree
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "replies", force: :cascade do |t|
-    t.text     "body"
-    t.integer  "user_id"
-    t.integer  "ama_id"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.integer  "vote_count", default: 0
+    t.text     "body",       limit: 65535
+    t.integer  "user_id",    limit: 4
+    t.integer  "ama_id",     limit: 4
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+    t.integer  "vote_count", limit: 4,     default: 0
   end
 
   add_index "replies", ["ama_id"], name: "index_replies_on_ama_id", using: :btree
   add_index "replies", ["user_id"], name: "index_replies_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "username"
-    t.string   "email"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
-    t.string   "password_digest"
-    t.string   "avatar_file_name"
-    t.string   "avatar_content_type"
-    t.integer  "avatar_file_size"
+    t.string   "username",            limit: 255
+    t.string   "email",               limit: 255
+    t.datetime "created_at",                                    null: false
+    t.datetime "updated_at",                                    null: false
+    t.string   "password_digest",     limit: 255
+    t.string   "avatar_file_name",    limit: 255
+    t.string   "avatar_content_type", limit: 255
+    t.integer  "avatar_file_size",    limit: 4
     t.datetime "avatar_updated_at"
-    t.string   "remember_digest"
-    t.string   "role"
-    t.text     "one_liner"
-    t.text     "background"
-    t.integer  "vote_count",          default: 0
-    t.text     "description"
+    t.string   "remember_digest",     limit: 255
+    t.string   "role",                limit: 255
+    t.text     "one_liner",           limit: 65535
+    t.text     "background",          limit: 65535
+    t.integer  "vote_count",          limit: 4,     default: 0
+    t.text     "description",         limit: 65535
   end
 
   add_foreign_key "amas", "users"
